@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  padding-top: 1em;
+}
+
+th,
+td {
+  padding: 12px;
+}
+
+.time-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cards {
+  width: 101em;
+  height: 30em;
+  margin: 2em;
+  padding: 1em;
+  overflow: scroll;
+}
+
+.duration {
+  height: 1.5em;
+}
+
+.no-entries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20em;
+
+}

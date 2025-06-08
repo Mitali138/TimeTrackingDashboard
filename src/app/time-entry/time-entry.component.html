@@ -1,0 +1,64 @@
+<mat-card class="cards">
+    <div class="time-entry">
+        <h3>Today's Time Entries</h3>
+        <button mat-raised-button type="button" color="primary" (click)="addEntry()">+ Add Entry</button>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <table mat-table class="mat-elevation-z2">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Duration</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="entries.controls.length !== 0" formArrayName="entries">
+                <tr *ngFor="let entry of pagedEntries; let i = index" [formGroupName]="i + currentPage * pageSize"
+                    cdkDrag>
+                    <td>
+                        <mat-form-field>
+                            <mat-select formControlName="project" placeholder="Select Project">
+                                <mat-option *ngFor="let p of projects" [value]="p.name">{{ p.name }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <input type="time" formControlName="startTime"
+                            (change)="calculateDuration(i + currentPage * pageSize)" />
+                    </td>
+                    <td>
+                        <input type="time" formControlName="endTime"
+                            (change)="calculateDuration(i + currentPage * pageSize)" />
+                    </td>
+                    <td>
+                        <input class="duration" formControlName="duration" [disabled]="true" />
+                    </td>
+                    <td>
+                        <div style="display: flex;">
+                            <button type="button" mat-icon-button (click)="removeEntry(i + currentPage * pageSize)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button mat-raised-button type="submit" color="accent">Save</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+            <div style="margin-top: 10px; display: flex; justify-content: center; align-items: center;">
+                <button mat-button (click)="previousPage()" [disabled]="currentPage === 0">Previous</button>
+                <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+                <button mat-button (click)="nextPage()" [disabled]="currentPage + 1 >= totalPages">Next</button>
+            </div>
+
+
+        </table>
+
+        <div class="no-entries" *ngIf="entries.controls.length===0">
+            <mat-icon>access_time</mat-icon>
+            <span>No time entries for today yet</span>
+            <span>Add your first entry above to get started</span>
+        </div>
+    </form>
+</mat-card>

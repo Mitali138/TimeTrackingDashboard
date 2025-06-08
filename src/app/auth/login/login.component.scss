@@ -1,0 +1,43 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #cbcce3;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em;
+  color: #0e11e0;
+}
+
+
+
+
+
+mat-card {
+  width: 30em;
+  font-weight: 500;
+  font-size: 1.1em;
+  padding: 1em;
+}
+
+.custom-width {
+  width: 25em;
+  border-radius: 54px;
+}
+
+.rememberMe {
+  padding-bottom: 1em;
+}
+
+.error {
+  color: red;
+}
+
+.mat-btn {
+  width: 100%;
+}

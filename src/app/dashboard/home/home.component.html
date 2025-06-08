@@ -1,0 +1,69 @@
+<div class="dashboard-container">
+  <div class="header">
+    <img *ngIf="employee" [src]="employee.avatar" class="avatar" alt="User Avatar" />
+
+    <div class="block-area">
+
+
+      <div class="empData">
+        <div class="empName">Welcome, {{ employee.name }}</div>
+        <div class="empMeta">
+          <span class="department">{{ employee.department }}</span>
+          <span>{{employee.employeeId}}</span>
+        </div>
+      </div>
+
+
+      <div class="time-display">
+        <div class="time">{{ currentTime }}</div>
+        <div>{{ currentDate | date: 'fullDate' }} </div>
+      </div>
+      <div class="notifications" role="button" tabindex="0" (click)="toggleNotifications()"
+        (keydown.enter)="toggleNotifications()" (keydown.space)="toggleNotifications()" style="cursor:pointer;">
+        <mat-icon>{{ notificationsEnabled ? 'notifications' : 'notifications_off' }}</mat-icon>
+        <span>Notifications {{ notificationsEnabled ? 'ON' : 'OFF' }}</span>
+      </div>
+
+      <button class="logout" mat-button color="warn" role="button" tabindex="0" (click)="logout()"
+        (keydown.enter)="logout()" (keydown.space)="logout()">Logout</button>
+    </div>
+  </div>
+
+
+
+  <mat-tab-group>
+    <mat-tab label="Dashboard">
+
+      <mat-card class="cards">
+        <div class="clock-section">
+          <div>
+            <div class="heading"> <mat-icon>access_time</mat-icon> <span>Clock In/Out</span></div>
+            <span class="track">Track your daily work hour and location</span>
+          </div>
+          <div *ngIf="clockedIn" class="status">
+            <span>Location: {{ currentLocation }}</span>
+            <span>Status: {{ status }}</span>
+            <span>Clock In Time: {{ elapsedTime }}</span>
+          </div>
+          <span *ngIf="!clockedIn" class="unclick">Status: {{ status }}</span>
+          <button mat-raised-button color="primary" style="background-color:#3c993c;" class="btn" *ngIf="!clockedIn"
+            role="button" tabindex="0" (click)="clockIn()" (keydown.enter)="clockIn()" (keydown.space)="clockIn()">
+            Clock In
+          </button>
+          <div *ngIf="clockedIn">
+            <button mat-raised-button color="accent" style="background-color:red;" class="btn" role="button"
+              tabindex="0" (click)="clockOut()" (keydown.enter)="clockOut()" (keydown.space)="clockOut()">Clock Out - {{
+              elapsedTime }}</button>
+          </div>
+        </div>
+
+      </mat-card>
+
+    </mat-tab>
+
+    <mat-tab label="Timesheet">
+      <app-time-entry></app-time-entry>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

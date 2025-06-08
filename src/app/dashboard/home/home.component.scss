@@ -1,0 +1,116 @@
+.dashboard-container {
+  background-color: #cbcce3;
+  height: 100vh;
+
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  padding: 1em;
+}
+
+.empData {
+  flex-direction: column;
+}
+
+.time {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.notifications {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empMeta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.block-area {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18em;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 1.1em;
+  display: flex;
+  gap: 0.2em;
+}
+
+.btn {
+  width: 100%;
+  height: 3em;
+  border: 0px;
+  color: white;
+  border-radius: 5px;
+
+}
+
+.track {
+  font-weight: 400;
+  font-size: 1.1em;
+  color: grey;
+  line-height: 3em;
+}
+
+.status {
+  display: flex;
+  gap: 33.8em;
+  padding-bottom: 1em;
+  margin-top: 4em;
+}
+
+.unclick {
+  margin-top: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.department {
+  background: #205bd5;
+  color: white;
+  padding: 7px 17px;
+  border-radius: 13px;
+}
+
+.clock-section {
+  padding: 2rem;
+}
+
+.cards {
+  width: 101em;
+  height: 20em;
+  margin: 2em;
+}
+
+
+.empName {
+  font-weight: 500;
+  font-size: 1.2em;
+  padding-bottom: 0.3em;
+}
+
+.logout {
+  padding: 0.5em;
+  width: 6em;
+}
